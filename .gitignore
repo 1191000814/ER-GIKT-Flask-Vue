@@ -1,13 +1,15 @@
-Vue-FrontEnd\node_modules
-Vue-FrontEnd\.idea
-Vue-FrontEnd\
+# 前端
+Vue-FrontEnd/node_modules
+Vue-FrontEnd/.idea
+Vue-FrontEnd/
 
-Flask-BackEnd\.idea
-Flask-BackEnd\migrations
-Flask-BackEnd\app\__pycache__
-Flask-BackEnd\app\alg\chart_data\*
-Flask-BackEnd\app\alg\chart_img\*
-Flask-BackEnd\app\alg\logs\*
-Flask-BackEnd\app\alg\model\*
-Flask-BackEnd\app\alg\output\*
+# 后端
+Flask-BackEnd/.idea/
+Flask-BackEnd/migrations/
+Flask-BackEnd/app/__pycache__
+Flask-BackEnd/app/alg/chart_data/*
+Flask-BackEnd/app/alg/chart_img/*
+Flask-BackEnd/app/alg/logs/*
+Flask-BackEnd/app/alg/model/*
+Flask-BackEnd/app/alg/output/*
 
