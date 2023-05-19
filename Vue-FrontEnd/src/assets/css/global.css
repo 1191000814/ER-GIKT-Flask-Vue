@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*自定义图表*/
+.myChart{
+    width: 90%;
+    height: 500px;
+    top: 10px;
+    margin: 10px
+}
+
+/*自定义图表*/
+.myLink{
+    text-decoration: none;
+}
