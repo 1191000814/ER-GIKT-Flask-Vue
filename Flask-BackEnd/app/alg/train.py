@@ -1,13 +1,12 @@
 """
-初始化模型
+仅训练模型
 """
 from gikt import GIKT
 from utils import gen_gikt_graph, build_adj_list
 from params import *
 from scipy import sparse
-from dataset import UserDataSet
+from dataset import UserDataset
 from torch.utils.data import DataLoader
-from torch.utils.tensorboard import SummaryWriter
 from sklearn.metrics import roc_auc_score
 from data_process import min_seq_len, max_seq_len
 from datetime import datetime
@@ -59,19 +58,19 @@ model = GIKT(
     hard_recap=params['hard_recap'],
 ).to(DEVICE)
 
+dataset = UserDataset()
+data_len = len(dataset) # 数据总长度
 loss_fun = torch.nn.BCEWithLogitsLoss().to(DEVICE) # 损失函数
 if DEVICE.type == 'cpu': # cpu, 本机
-    data_loader = DataLoader(UserDataSet(), batch_size=params['batch_size']) # 数据加载器
+    data_loader = DataLoader(dataset, batch_size=params['batch_size']) # 数据加载器
 else: # gpu, 服务器
-    data_loader = DataLoader(UserDataSet(), batch_size=params['batch_size'], num_workers=params['num_workers'],
+    data_loader = DataLoader(dataset, batch_size=params['batch_size'], num_workers=params['num_workers'],
                              pin_memory=True,prefetch_factor=params['prefetch_factor'])
-data_len = len(data_loader.dataset) # 数据总长度
 print('model has been built')
 
 # 开始训练
 optimizer = torch.optim.Adam(params=model.parameters(), lr=params['lr'])
 torch.optim.lr_scheduler.ExponentialLR(optimizer, params['lr_gamma'])
-# writer = SummaryWriter(log_dir='logs/')
 # 在matplotlib中绘制的y轴数据，三行分别表示loss, acc, auc
 y_label = np.zeros([3, params['epochs']])
 
@@ -87,8 +86,7 @@ for epoch in range(params['epochs']):
     for data in data_loader:
         # 梯度清零
         optimizer.zero_grad()
-        x, y_target, mask = data
-        x, y_target, mask = x.to(DEVICE), y_target.to(DEVICE), mask.to(DEVICE)
+        x, y_target, mask = data[:, :, 0].to(DEVICE), data[:, :, 1].to(DEVICE), data[:, :, 2].to(torch.bool).to(DEVICE)
         y_hat = model(x, y_target, mask)
         y_hat = torch.masked_select(y_hat, mask)
         y_pred = torch.ge(y_hat, torch.tensor(0.5))
@@ -117,11 +115,6 @@ for epoch in range(params['epochs']):
     # 保存输出至本地文件
     output_file.write(f'epoch: {epoch}, loss: {loss_aver:.4f}, acc: {acc_aver:.4f}, auc: {auc_aver: 4f}\n')
     output_file.write(f'time: {run_time:.2f}s, average batch time: {(run_time / train_step):.2f}s\n')
-    # 保存至tensorboard
-    # writer.add_scalar('loss', loss_aver, epoch)
-    # writer.add_scalar('acc', acc_aver, epoch)
-    # writer.add_scalar('auc', auc_aver, epoch)
 output_file.close()
-# writer.close()
 torch.save(model, f=f'model/{time_now}.pt')
 np.savetxt(f'chart_data/{time_now}.txt', y_label)
