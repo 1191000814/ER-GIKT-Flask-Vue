@@ -6,7 +6,7 @@
           <i class="el-icon-star-off"></i>
           项目名称
         </template>
-        基于深度知识追踪模型的习题推荐系统的设计与实现
+        <el-link type="primary" href="https://github.com/1191000814/ER-GIKT-Flask-Vue">基于深度知识追踪模型的习题推荐系统的设计与实现</el-link>
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">

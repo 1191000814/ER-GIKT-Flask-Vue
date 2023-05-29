@@ -43,6 +43,12 @@
 
 **前端**
 
+进入目录`Vue-FrontEnd`
+
+```bash
+cd Vue-FrontEnd
+```
+
 安装需要的包
 
 ```bash
@@ -57,21 +63,25 @@ npm run serve
 
 **后端**
 
-1. 修改mysql配置项
+1. 用pycharm打开目录`Flask-BackEnd`
 
-2. 运行data_process.py，生成预训练数据
+2. 修改mysql数据库配置项
 
-3. 运行train.py，训练并保存一次模型（以便后端调用）
+3. 运行`data_process.py`，生成预训练数据
 
-4. 用pycharm或者终端启动setup.py，根据报错安装需要的包，其中：
+4. ~~运行pre_train.py，生成预训练问题向量~~
 
-   - pytorch==1.10.1
+5. 运行`train.py`，训练并保存一次模型（以便后端调用）
 
-   * flask==2.2.5
+6. 用pycharm或者终端启动`setup.py`，根据报错安装需要的包，其中：
 
-5. 解决报错后，运行**一次**create_data，在数据库中添加初始数据
+   - pytorch==**1.10.1**
 
-3. 访问本机5001端口，测试系统
+   * flask==**2.2.5**
+
+7. 解决报错后，运行**一次**`create_data.py`（或者在`__init__.py`的app_context中调用**一次**create_data函数），在数据库中添加初始数据
+
+8. 重新启动，访问本机5001端口，测试系统
 
 ### 项目存在的一些问题
 
@@ -92,3 +102,8 @@ npm run serve
 
 - 包引用（尤其是对算法包`alg`的引用）存在问题，使用了粗暴的解决方式 `sys.path.append()` ，且无法使用相对路径导入
 - flask数据库迁移会报错，只能自己手动通过DBMS修改
+
+### 项目界面展示
+
+![img](https://docimg9.docs.qq.com/image/AgAABhna8a_fmBfy37BFK4ZywXkPxren.png?w=1920&h=892)
+
