@@ -52,10 +52,10 @@ for epoch in range(20):
         train_loss += loss.item()
         loss.backward()  # 反向传播
         optimizer.step()  # 参数优化
-        if idx_batch % 10 == 0:
-            print(f'epoch: {epoch}, idx_batch: {idx_batch}, loss: {loss.item()}, loss_qs: {loss_qs.item()}, '
-                  f'loss_qq: {loss_qq.item()}, loss_ss: {loss_ss.item()}')
-    print(f'epoch: {epoch}, train_loss: {train_loss}')
+        # if idx_batch % 10 == 0:
+        #     print(f'epoch: {epoch}, idx_batch: {idx_batch}, loss: {loss.item()}, loss_qs: {loss_qs.item()}, '
+        #           f'loss_qq: {loss_qq.item()}, loss_ss: {loss_ss.item()}')
+    print(f'----------epoch: {epoch + 1}, train_loss: {train_loss}')
     writer.add_scalar(tag='pebg_loss_dim200', scalar_value=train_loss, global_step=epoch)
 ic(model.q_embedding, model.s_embedding)
 torch.save(model.q_embedding, f='data/q_embedding.pt')

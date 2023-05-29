@@ -72,7 +72,7 @@ print('model has been built')
 optimizer = torch.optim.Adam(params=model.parameters(), lr=params['lr'])
 torch.optim.lr_scheduler.ExponentialLR(optimizer, params['lr_gamma'])
 # 在matplotlib中绘制的y轴数据，三行分别表示loss, acc, auc
-y_label = np.zeros([3, params['epochs']])
+y_label = np.zeros([3, params['epochs']]) # 精度值
 
 for epoch in range(params['epochs']):
     print('===================' + LOG_Y + 'epoch: {}'.format(epoch + 1) + LOG_END + '====================')

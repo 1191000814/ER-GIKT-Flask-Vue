@@ -89,12 +89,12 @@ if __name__ == '__main__':
         np.save('data/idx2skill.npy', idx2skill)
         np.save('data/idx2user.npy', idx2user)
     else:
-        question2idx = np.load('data/question2idx.npy', allow_pickle=True)
-        skill2idx = np.load('data/skill2idx.npy', allow_pickle=True)
-        user2idx = np.load('data/user2idx.npy', allow_pickle=True)
-        idx2question = np.load('data/idx2question.npy', allow_pickle=True)
-        idx2skill = np.load('data/idx2skill.npy', allow_pickle=True)
-        idx2user = np.load('data/idx2user.npy', allow_pickle=True)
+        question2idx = np.load('data/question2idx.npy', allow_pickle=True).item()
+        skill2idx = np.load('data/skill2idx.npy', allow_pickle=True).item()
+        user2idx = np.load('data/user2idx.npy', allow_pickle=True).item()
+        idx2question = np.load('data/idx2question.npy', allow_pickle=True).item()
+        idx2skill = np.load('data/idx2skill.npy', allow_pickle=True).item()
+        idx2user = np.load('data/idx2user.npy', allow_pickle=True).item()
 
     # 本地的邻接矩阵
     if not os.path.exists('data/qs_table.npz'):

@@ -6,7 +6,7 @@ import os.path
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_name = 'y_label'
+data_name = '2023_05_17#19_26_12'
 
 plt.title('the loss, acc and auc of GIKT model')
 plt.xlabel('epoch')
