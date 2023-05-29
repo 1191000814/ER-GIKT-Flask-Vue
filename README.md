@@ -12,7 +12,9 @@
       * gikt.py `GIKT模型`
       * pebg.py `PEBG模型`
         * params.py `一些参数`
-      * train.py `模型训练`
+      * train.py `仅模型训练`
+      * train_test.py `模型训练和测试-五折交叉验证`
+      * train_test2.py `模型训练和测试-4:1训练测试`
       * utils.py `工具函数`
     * view `flask蓝图`
     * \__init__.py `初始化`
@@ -76,7 +78,7 @@ npm run serve
 **算法**
 
 - PEBG模型未按论文实现，实际上忽略了pnn网络（实现中出现了问题，故将其忽略）
-- GIKT模型训练时计算的是训练的acc和auc，非测试的acc和auc
+- 参数仍可调优，最终结果可以继续优化
 
 **前端**
 
