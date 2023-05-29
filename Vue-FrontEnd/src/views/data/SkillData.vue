@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 10px">
     <div style="margin: 10px 0">
-      <el-button type="primary" icon="el-icon-plus" style="margin-left: 5px" @click="handleAdd" disabled="disabled">
+      <el-button type="primary" icon="el-icon-plus" style="margin-left: 5px" @click="handleAdd" :disabled="user.role">
         新增
       </el-button>
       <el-input v-model="search" placeholder="请输入知识点ID" style="width: 20%; margin-left: 5px"
@@ -15,10 +15,10 @@
       <el-table-column prop="num_q" label="知识点相关的习题数量"></el-table-column>
       <el-table-column label="操作">
         <template v-slot="scope">
-          <el-button disabled="disabled" type="warning" @click="handleUpdate(scope.row)">
+          <el-button :disabled="user.role" type="warning" @click="handleUpdate(scope.row)">
             <i class="el-icon-edit"></i>编辑
           </el-button>
-          <el-button disabled="disabled" type="danger" style="margin-left: 5px">
+          <el-button :disabled="user.role" type="danger" style="margin-left: 5px">
             <i class="el-icon-delete"></i>删除
           </el-button>
         </template>
@@ -111,7 +111,7 @@ export default {
       this.formData = {};
     },
 
-    handleSave() {
+    handleSave: function () {
       if (this.formData.id) { // 参数带有id的，是更新（update）操作
         console.log('打印')
         console.log(this.formData)

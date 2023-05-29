@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 10px">
     <div style="margin: 10px 0">
-      <el-button type="primary" icon="el-icon-plus" style="margin-left: 5px" @click="handleAdd" :disabled="user.role===1">新增</el-button>
+      <el-button type="primary" icon="el-icon-plus" style="margin-left: 5px" @click="handleAdd" :disabled="user.role">新增</el-button>
       <el-input v-model="search" placeholder="请输入用户名" style="width: 20%; margin-left: 5px"
                 clearable></el-input>
       <el-button type="primary" icon="el-icon-search" style="margin-left: 5px" @click="load()">搜索</el-button>
@@ -25,7 +25,7 @@
       </el-table-column>
       <el-table-column label="操作">
         <template v-slot="scope">
-          <el-button :disabled="user.role===1" type="warning" @click="handleUpdate(scope.row)">
+          <el-button :disabled="user.role" type="warning" @click="handleUpdate(scope.row)">
             <i class="el-icon-edit"></i>编辑
           </el-button>
           <el-popconfirm
@@ -36,7 +36,7 @@
               title="这是一段内容确定删除吗？"
               @confirm="handleDelete(scope.row)"
           >
-            <el-button :disabled="user.role===1" slot="reference" type="danger" style="margin-left: 5px">
+            <el-button :disabled="user.role" slot="reference" type="danger" style="margin-left: 5px">
               <i class="el-icon-delete"></i>删除
             </el-button>
           </el-popconfirm>
