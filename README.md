@@ -18,9 +18,9 @@
       * utils.py `工具函数`
     * view `flask蓝图`
     * \__init__.py `初始化`
-    * create_data `创建初始数据`
-    * entity `实体类`
-    * setup `启动`
+    * create_data.py `创建初始数据`
+    * entity.py `实体类`
+    * setup.py `启动`
   * migrate `数据库迁移文件`
 
 * Vue-FrontEnd `vue前端`
