@@ -11,7 +11,7 @@
       * data_process.py `数据预处理`
       * gikt.py `GIKT模型`
       * pebg.py `PEBG模型`
-        * params.py `一些参数`
+      * params.py `一些参数`
       * train.py `仅模型训练`
       * train_test.py `模型训练和测试-五折交叉验证`
       * train_test2.py `模型训练和测试-4:1训练测试`
