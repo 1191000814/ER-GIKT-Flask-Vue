@@ -104,6 +104,6 @@ npm run serve
 - flask数据库迁移会报错，只能自己手动通过DBMS修改
 
 ### 项目界面展示
-![image](https://github.com/1191000814/ER-GIKT-Flask-Vue/assets/79617801/147783e0-7b6d-4ab9-b99f-244e9963c6e2)
+![AgAABhna8a_CCps_7ylBYI1VJjMBavSR](https://github.com/1191000814/ER-GIKT-Flask-Vue/assets/79617801/d411280b-1c28-42c2-abb6-e52e2ff1044d)
 
 
