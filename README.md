@@ -67,21 +67,23 @@ npm run serve
 
 2. 修改mysql数据库配置项
 
-3. 运行`data_process.py`，生成预训练数据
+3. 执行`er_gikt.sql`文件, 生成数据库结构
 
-4. ~~运行pre_train.py，生成预训练问题向量~~
+4. 运行`data_process.py`，生成预训练数据
 
-5. 运行`train.py`，训练并保存一次模型（以便后端调用）
+5. ~~运行pre_train.py，生成预训练问题向量~~
 
-6. 用pycharm或者终端启动`setup.py`，根据报错安装需要的包，其中：
+6. 运行`train.py`，训练并保存一次模型（以便后端调用）
+
+7. 用pycharm或者终端启动`setup.py`，根据报错安装需要的包，其中：
 
    - pytorch==**1.10.1**
 
    * flask==**2.2.5**
 
-7. 解决报错后，运行**一次**`create_data.py`（或者在`__init__.py`的app_context中调用**一次**create_data函数），在数据库中添加初始数据
+8. 解决报错后，运行**一次**`create_data.py`（或者在`__init__.py`的app_context中调用**一次**create_data函数），在数据库中添加初始数据
 
-8. 重新启动，访问本机5001端口，测试系统
+9. 重新启动，访问本机5001端口，测试系统
 
 ### 项目存在的一些问题
 
@@ -105,5 +107,4 @@ npm run serve
 
 ### 项目界面展示
 ![AgAABhna8a_CCps_7ylBYI1VJjMBavSR](https://github.com/1191000814/ER-GIKT-Flask-Vue/assets/79617801/d411280b-1c28-42c2-abb6-e52e2ff1044d)
-
 
